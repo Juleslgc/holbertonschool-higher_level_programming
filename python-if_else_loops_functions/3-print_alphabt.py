@@ -1,4 +1,4 @@
 #!/usr/bin/python3
 for c in range(97, 123):
-    if c != ord('q') and c != ord('e'):
+    if chr(c) != 'q' and chr(c) != 'e':
         print(chr(c), end="")
