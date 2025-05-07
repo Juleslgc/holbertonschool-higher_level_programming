@@ -8,5 +8,5 @@ def main():
     print(f"{a} + {b} = {add(a, b)}")
 
 
-if __import__ == "__main__":
+if __name__ == "__main__":
     main()
