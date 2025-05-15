@@ -10,8 +10,8 @@ def roman_to_int(roman_string):
     sum = 0
     i = 0
     while i < len(roman_string):
-        if i + 1 < len(roman_string) and roman_string[i] + roman_string[i+1] in roman:
-            sum += roman[roman_string[i] + roman_string[i+1]]
+        if i + 1 < len(roman_string) and roman_string[i:i+1] in roman:
+            sum += roman[roman_string[i:i+1]]
             i += 2
         else:
             sum += roman[roman_string[i]]
