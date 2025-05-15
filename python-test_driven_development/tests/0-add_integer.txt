@@ -5,11 +5,9 @@ Using "add_integer"
 -------------------
 
 import module:
-
     >>> add_integer = __import__('0-add_integer').add_integer
 
 Add two integer:
-
     >>> add_integer(2, 4)
     6
 
@@ -44,3 +42,9 @@ If a or b is string:
     Traceback (most recent call last):
     ...
     TypeError: b must be an integer
+
+If these is 3 parameters:
+    >>> add_integer(2, 4, 6)
+    Traceback (most recent call last):
+    ...
+    TypeError: add_integer() takes from 1 to 2 positional arguments but 3 were given

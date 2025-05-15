@@ -1,4 +1,11 @@
 #!/usr/bin/python3
+"""
+This is the "0-add_interger" modulo.
+It contains the function :
+add_interger
+"""
+
+
 def add_integer(a, b=98):
     """
     Add two integers.
@@ -8,13 +15,8 @@ def add_integer(a, b=98):
     b : second number.
 
     return :
-    int: the sum of a and b.
-
-    >>> add(2, 3)
-    5
-    >>> add(1.5, 2.5)
-    3
-"""
+    the sum of a and b.
+    """
     if type(a) is not int and type(a) is not float:
         raise TypeError('a must be an integer')
     if type(b) is not int and type(b) is not float:
