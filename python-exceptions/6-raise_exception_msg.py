@@ -3,5 +3,5 @@
 def raise_exception_msg(message=""):
     try:
         raise NameError(message)
-    except:
+    except Exception as e:
         raise

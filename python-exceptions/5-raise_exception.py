@@ -2,6 +2,6 @@
 
 def raise_exception():
     try:
-        raise(TypeError)
-    except:
+        raise (TypeError)
+    except Exception as e:
         raise
