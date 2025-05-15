@@ -1,0 +1,46 @@
+The "0-add_integer" module
+======================
+
+Using "add_integer"
+-------------------
+
+import module:
+
+    >>> add_integer = __import__('0-add_integer').add_integer
+
+Add two integer:
+
+    >>> add_integer(2, 4)
+    6
+
+Add one integer and one float:
+    >>> add_integer(2, 4.3)
+    6
+    >>> add_integer(2.3, 4)
+    6
+
+Add two float:
+    >>> add_integer(2.3, 4.3)
+    6
+
+Add two negatif integer:
+    >>> add_integer(-2, -4)
+    -6
+
+Add one negatif integer and one integer:
+    >>> add_integer(-2, 4)
+    2
+
+Add two long integer:
+    >>> add_integer(2000, 4000)
+    6000
+
+If a or b is string:
+    >>> add_integer("test", 4)
+    Traceback (most recent call last):
+    ...
+    TypeError: a must be an integer
+    >>> add_integer(2, "test")
+    Traceback (most recent call last):
+    ...
+    TypeError: b must be an integer
