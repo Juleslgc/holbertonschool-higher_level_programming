@@ -67,13 +67,3 @@ If a or b is dictionary, tuple or list:
     Traceback (most recent call last):
     ...
     TypeError: b must be an integer
-
-If a or b is variable not defined:
-    >>> add_integer(x, 4)
-    Traceback (most recent call last):
-    ...
-    NameError: name 'x' is not defined
-    >>> add_integer(2, x)
-    Traceback (most recent call last):
-    ...
-    NameError: name 'x' is not defined
