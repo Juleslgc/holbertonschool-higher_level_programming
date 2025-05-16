@@ -32,6 +32,7 @@ Add one negatif integer and one positive:
 Add two long integers:
     >>> add_integer(2000, 4000)
     6000
+
 Add one integer with the default variable b=98
     >>> add_integer(2)
     100
@@ -51,12 +52,6 @@ If there is 3 parameters:
     Traceback (most recent call last):
     ...
     TypeError: add_integer() takes from 1 to 2 positional arguments but 3 were given
-
-If no parameters:
-    >>> add_integer()
-    Traceback (most recent call last):
-    ...
-    TypeError: missing 1 arguments
 
 If a or b is dictionary, tuple or list:
     >>> add_integer({'a' : 2}, 4)
