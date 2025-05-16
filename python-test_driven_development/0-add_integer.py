@@ -2,7 +2,7 @@
 """
 This is the "0-add_interger" modulo.
 It contains the function :
-add_interger
+add_integer
 """
 
 
@@ -16,6 +16,12 @@ def add_integer(a, b=98):
 
     return :
     the sum of a and b.
+
+    test :
+    >>> add_integer(2, 4)
+    6
+    >>> add_integer(100, -10)
+    90
     """
     if type(a) is not int and type(a) is not float:
         raise TypeError('a must be an integer')

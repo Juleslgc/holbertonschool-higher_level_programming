@@ -21,17 +21,20 @@ Add two float:
     >>> add_integer(2.3, 4.3)
     6
 
-Add two negatif integer:
+Add two negatif integers:
     >>> add_integer(-2, -4)
     -6
 
-Add one negatif integer and one integer:
+Add one negatif integer and one positive:
     >>> add_integer(-2, 4)
     2
 
-Add two long integer:
+Add two long integers:
     >>> add_integer(2000, 4000)
     6000
+Add one integer with the default variable b=98
+    >>> add_integer(2)
+    100
 
 If a or b is string:
     >>> add_integer("test", 4)
@@ -43,8 +46,34 @@ If a or b is string:
     ...
     TypeError: b must be an integer
 
-If these is 3 parameters:
+If there is 3 parameters:
     >>> add_integer(2, 4, 6)
     Traceback (most recent call last):
     ...
     TypeError: add_integer() takes from 1 to 2 positional arguments but 3 were given
+
+If no parameters:
+    >>> add_integer()
+    Traceback (most recent call last):
+    ...
+    TypeError: missing 1 arguments
+
+If a or b is dictionary, tuple or list:
+    >>> add_integer({'a' : 2}, 4)
+    Traceback (most recent call last):
+    ...
+    TypeError: a must be an integer
+    >>> add_integer(2, [4])
+    Traceback (most recent call last):
+    ...
+    TypeError: b must be an integer
+
+If a or b is variable not defined:
+    >>> add_integer(x, 4)
+    Traceback (most recent call last):
+    ...
+    NameError: name 'x' is not defined
+    >>> add_integer(2, x)
+    Traceback (most recent call last):
+    ...
+    NameError: name 'x' is not defined
