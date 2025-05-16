@@ -7,7 +7,7 @@ say_my_name
 
 
 def say_my_name(first_name, last_name=""):
-    """ 
+    """
     Print first name and last name function.
 
     Parameters:
