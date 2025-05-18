@@ -40,5 +40,5 @@ def matrix_divided(matrix, div):
                     )
     new_m = []
     for i in matrix:
-        new_m.append(list(map(lambda x: int(x / div * 100) / 100, i)))
+        new_m.append(list(map(lambda x: round(x / div, 2), i)))
     return new_m
