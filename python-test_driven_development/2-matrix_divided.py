@@ -38,7 +38,4 @@ def matrix_divided(matrix, div):
                     'matrix must be a matrix (list of lists) of '
                     'integers/floats'
                     )
-    new_m = []
-    for i in matrix:
-        new_m.append(list(map(lambda x: round(x / div, 2), i)))
-    return new_m
+    return [list(map(lambda x: round(x / div, 2), tab))for tab in matrix]
