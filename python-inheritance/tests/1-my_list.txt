@@ -43,3 +43,15 @@ Test with negative values:
     >>> neg_list.append(-1)
     >>> neg_list.print_sorted()
     [-3, -1, 0, 2]
+Too many arguments to print_sorted():
+    >>> my_list = MyList()
+    >>> my_list.print_sorted(1)
+    Traceback (most recent call last):
+    ...
+    TypeError: print_sorted() takes 1 positional argument but 2 were given
+
+Too many arguments to append():
+    >>> my_list.append(2, 3)
+    Traceback (most recent call last):
+    ...
+    TypeError: list.append() takes exactly one argument (2 given)
