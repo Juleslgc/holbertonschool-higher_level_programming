@@ -2,7 +2,7 @@ The "1-my_list" module
 ======================
 
 Using "print_sorted"
--------------------
+--------------------
 
 import module:
     >>> MyList = __import__('1-my_list').MyList
@@ -21,9 +21,11 @@ Append new element unsorted:
     [1, 3, 2]
     >>> my_list.print_sorted()
     [1, 2, 3]
+    >>> print(my_list)
+    [1, 3, 2]
 
 With duplicate:
-     >>> my_list = MyList()
+    >>> my_list = MyList()
     >>> my_list.append(1)
     >>> my_list.append(3)
     >>> my_list.append(3)
@@ -32,6 +34,8 @@ With duplicate:
     [1, 3, 3, 2]
     >>> my_list.print_sorted()
     [1, 2, 3, 3]
+    >>> print(my_list)
+    [1, 3, 3, 2]
 
 Negative number:
     >>> my_list = MyList()
@@ -41,9 +45,12 @@ Negative number:
     >>> print(my_list)
     [1, -3, 2]
     >>> my_list.print_sorted()
-    [1, 2, -3]
+    [-3, 1, 2]
+    >>> print(my_list)
+    [1, -3, 2]
 
 If too many arguments:
+    >>> my_list = MyList()
     >>> my_list.print_sorted(1)
     Traceback (most recent call last):
     ...
@@ -52,4 +59,4 @@ If too many arguments:
     >>> my_list.append(2, 3)
     Traceback (most recent call last):
     ...
-    TypeError: list.append() takes 1 positional argument but 2 were given
+    TypeError: list.append() takes exactly one argument (2 given)
