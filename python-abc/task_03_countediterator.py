@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-This is the "task_03_abc" modulo.
+This is the "task_03_countediterator" modulo.
 It contains the class :
 CountedIterator
 It contains the function :
@@ -25,4 +25,4 @@ class CountedIterator:
             self.count += 1
             return item
         except StopIteration:
-            print("No more items.")
+            raise StopIteration("No more items.")
