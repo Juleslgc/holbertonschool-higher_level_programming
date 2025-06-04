@@ -29,5 +29,5 @@ class CustomObject:
         try:
             with open(filename, 'rb') as f:
                 return pickle.load(f)
-        except (FileNotFoundError, pickle.PickleError):
+        except (FileNotFoundError, Exception):
             return None

@@ -1,7 +1,8 @@
 #!/usr/bin/python3
 """
 It contains the function:
-
+serialize_to_xml
+deserialize_from_xml
 """
 import xml.etree.ElementTree as ET
 
