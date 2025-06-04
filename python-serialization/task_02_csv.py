@@ -1,0 +1,19 @@
+#!/usr/bin/python3
+"""
+It contains the function:
+convert_csv_to_json
+"""
+import json
+import csv
+
+
+def convert_csv_to_json(filename):
+    try:
+        with open(filename, 'r') as f:
+            read = csv.DictReader(f)
+            read_data = list(read)
+            with open("data.json", 'w'):
+                json.dump(read_data)
+        return True
+    except (FileNotFoundError, csv.Error):
+        return False
