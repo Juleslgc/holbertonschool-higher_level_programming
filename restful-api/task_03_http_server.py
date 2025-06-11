@@ -49,6 +49,7 @@ class MyHandler(BaseHTTPRequestHandler):
             self.wfile.write(json.dumps(message).encode())
 
 
-server = HTTPServer(('localhost', 8000), MyHandler)
-print("Server running on http://localhost:8000")
-server.serve_forever()
+if __name__ == "__main__":
+    server = HTTPServer(('localhost', 8000), MyHandler)
+    print("Server running on http://localhost:8000")
+    server.serve_forever()
