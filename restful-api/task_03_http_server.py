@@ -50,6 +50,5 @@ class MyHandler(BaseHTTPRequestHandler):
 
 
 if __name__ == "__main__":
-    server = HTTPServer(('localhost', 8000), MyHandler)
-    print("Server running on http://localhost:8000")
+    server = HTTPServer(("", 8000), MyHandler)
     server.serve_forever()
