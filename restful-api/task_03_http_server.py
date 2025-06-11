@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """
 It contains the class:
-
+MyHandler
 """
 from http.server import BaseHTTPRequestHandler, HTTPServer
 import json
