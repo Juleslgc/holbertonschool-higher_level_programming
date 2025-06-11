@@ -27,7 +27,7 @@ class MyHandler(BaseHTTPRequestHandler):
             self.send_response(200)
             self.send_header('Content-Type', 'application/json')
             self.end_headers()
-            self.wfile.write(json.dumps(status).encode())
+            self.wfile.write(json.dumps(status).encode('utf-8'))
         elif self.path == "/":
             self.send_response(200)
             self.send_header('Content-Type', 'text/plain')
@@ -39,16 +39,17 @@ class MyHandler(BaseHTTPRequestHandler):
             self.send_response(200)
             self.send_header('Content-Type', 'application/json')
             self.end_headers()
-            self.wfile.write(json.dumps(info).encode())
+            self.wfile.write(json.dumps(info).encode('utf-8'))
         else:
             message = {"error": "404 Not Found",
                        "message": "Endpoint not found"}
             self.send_response(404)
             self.send_header('Content-Type', 'application/json')
             self.end_headers()
-            self.wfile.write(json.dumps(message).encode())
+            self.wfile.write(json.dumps(message).encode('utf-8'))
 
 
 if __name__ == "__main__":
     server = HTTPServer(("", 8000), MyHandler)
+    print("Server running on http://localhost:8000")
     server.serve_forever()
