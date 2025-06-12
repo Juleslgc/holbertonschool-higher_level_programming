@@ -58,7 +58,7 @@ def user_login():
     else:
         access_token = create_access_token(
             identity=username,
-            additional_claims={"role": user["role"]})
+            additional_claims={"role": users[username]["role"]})
         return jsonify(access_token=access_token)
 
 
@@ -126,4 +126,4 @@ def handle_needs_fresh_token_error(err):
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
