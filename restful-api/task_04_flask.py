@@ -12,7 +12,7 @@ from flask import Flask, jsonify, request
 
 app = Flask(__name__)
 
-users = {"jane": {"username": "jane", "name": "Jane", "age": 28, "city": "Los Angeles"}, "john": {"username": "john", "name": "John", "age": 30, "city": "New York"}}
+users = {}
 
 
 @app.route("/")
@@ -55,7 +55,7 @@ def add_user():
     Create a function that add a user.
     """
     data = request.get_json()
-    if "username" not in data or not data["username"]:
+    if "username" not in data:
         return jsonify({"error": "Username is required"}), 400
     username = data["username"]
     users[username] = data
