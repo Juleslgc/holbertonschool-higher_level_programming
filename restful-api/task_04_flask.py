@@ -36,7 +36,7 @@ def status():
     """
     Create a function that give the status.
     """
-    return ('OK')
+    return ('OK'), 200
 
 
 @app.route("/users/<username>")
@@ -46,7 +46,7 @@ def get_users(username):
     """
     if username in users:
         return jsonify(users[username]), 200
-    return jsonify({"error": "Users not found"}), 404
+    return jsonify({"error": "User not found"}), 404
 
 
 @app.route("/add_user", methods=["POST"])
