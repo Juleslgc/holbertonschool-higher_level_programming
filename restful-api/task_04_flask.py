@@ -12,7 +12,7 @@ from flask import Flask, jsonify, request
 
 app = Flask(__name__)
 
-users = []
+users = {}
 
 
 @app.route("/")
@@ -28,7 +28,7 @@ def data():
     """
     Create a function that give the data.
     """
-    return jsonify(users)
+    return jsonify(sorted(users.keys()))
 
 
 @app.route("/status")
@@ -44,9 +44,8 @@ def get_users(username):
     """
     Create a function that search a user.
     """
-    for user in users:
-        if user["username"] == username:
-            return jsonify(user)
+    if username in users:
+        return jsonify(users[username])
     return jsonify({"error": "Users Not Found"}), 404
 
 
@@ -58,7 +57,8 @@ def add_user():
     data = request.get_json()
     if "username" not in data or not data["username"]:
         return jsonify({"error": "Username is required"}), 400
-    users.append(data)
+    username = data["username"]
+    users[username] = data
     return jsonify({"message": "User added!", "user": data}), 201
 
 
