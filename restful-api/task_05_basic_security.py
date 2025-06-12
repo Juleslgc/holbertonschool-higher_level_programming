@@ -31,7 +31,8 @@ def verify_password(username, password):
     if username in users and check_password_hash(
        users.get(username).get("password"), password):
         return username
-    return None
+    else:
+        return None
 
 
 @app.route('/basic-protected', methods=["GET"])
@@ -54,10 +55,11 @@ def user_login():
 
     if log is None:
         return jsonify({"error": "invalid credentials"}), 401
-    access_token = create_access_token(
-        identity=username,
-        additional_claims={"role": user["role"]})
-    return jsonify(access_token=access_token), 200
+    else:
+        access_token = create_access_token(
+            identity=username,
+            additional_claims={"role": user["role"]})
+        return jsonify(access_token=access_token)
 
 
 @app.route('/jwt-protected', methods=['GET'])
