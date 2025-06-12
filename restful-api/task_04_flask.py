@@ -28,7 +28,7 @@ def data():
     """
     Create a function that give the data.
     """
-    return jsonify(sorted(users.keys()))
+    return jsonify(list(users.keys()))
 
 
 @app.route("/status")
@@ -45,7 +45,7 @@ def get_users(username):
     Create a function that search a user.
     """
     if username in users:
-        return jsonify(users[username])
+        return jsonify(users[username]), 200
     return jsonify({"error": "Users Not Found"}), 404
 
 
