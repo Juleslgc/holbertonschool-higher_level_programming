@@ -12,7 +12,7 @@ from flask import Flask, jsonify, request
 
 app = Flask(__name__)
 
-users = {}
+users = {"jane": {"username": "jane", "name": "Jane", "age": 28, "city": "Los Angeles"}, "john": {"username": "john", "name": "John", "age": 30, "city": "New York"}}
 
 
 @app.route("/")
@@ -59,8 +59,8 @@ def add_user():
         return jsonify({"error": "Username is required"}), 400
     username = data["username"]
     users[username] = data
-    return jsonify({"message": "User added!", "user": data}), 201
+    return jsonify({"message": "User added!", "user": users[username]}), 201
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run()
