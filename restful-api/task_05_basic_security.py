@@ -1,16 +1,7 @@
 #!/usr/bin/python3
 """
-It contains the function:
-verify_password
-auth_basic
-user_login
-jwt_protected
-admin_only
-handle_unauthorized_error
-handle_invalid_token_error
-handle_expired_token_error
-handle_revoked_token_error
-handle_needs_fresh_token_error
+This modules defines simple API Security
+and Authentication techniques.
 """
 from flask import Flask, request, jsonify
 from flask_httpauth import HTTPBasicAuth
@@ -38,34 +29,30 @@ def verify_password(username, password):
     Verify username and password for basic auth
     """
     if username in users and check_password_hash(
-       users[username]["password"], password):
+       users.get(username).get("password"), password):
         return username
-    return False
+    return None
 
 
-@app.route('/basic-protected')
+@app.route('/basic-protected', methods=["GET"])
 @auth.login_required
 def auth_basic():
     """
     Protected route with basic auth
     """
-    return ("Basic Auth: Access Granted"), 200
+    return ("Basic Auth: Access Granted")
 
 
-@app.route('/login', methods=['POST'])
+@app.route('/login', methods=["POST"])
 def user_login():
     """
     Login route, returns JWT on success
     """
-    data = request.get_json()
-    username = data.get("username")
-    password = data.get("password")
-    user = users.get(username)
-    if username not in users:
-        return jsonify({"error": "invalid credentials"}), 401
+    username = request.json.get("username")
+    password = request.json.get("password")
+    log = verify_password(username, password)
 
-    if username not in users or not check_password_hash(
-       user["password"], password):
+    if log is None:
         return jsonify({"error": "invalid credentials"}), 401
     access_token = create_access_token(
         identity=username,
@@ -93,7 +80,7 @@ def admin_only():
     if user_role != "admin":
         return jsonify({"error": "Admin access required"}), 403
     else:
-        return ("Admin Access: Granted"), 200
+        return ("Admin Access: Granted")
 
 
 @jwt.unauthorized_loader
