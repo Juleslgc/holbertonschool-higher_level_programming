@@ -20,4 +20,6 @@ if __name__ == "__main__":
     session.add(new_data)
     session.commit()
 
+    print(new_data.id)
+    
     session.close()
