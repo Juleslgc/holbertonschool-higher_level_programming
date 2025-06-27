@@ -21,5 +21,5 @@ if __name__ == "__main__":
     session.commit()
 
     print(new_data.id)
-    
+
     session.close()
