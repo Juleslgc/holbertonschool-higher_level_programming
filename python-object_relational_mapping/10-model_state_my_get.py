@@ -20,7 +20,10 @@ if __name__ == "__main__":
     place = sys.argv[4]
     states = session.query(State).filter(State.name == place).all()
 
-    for state in states:
-        print(f"{state.id}")
+    if states:
+        for state in states:
+            print(f"{state.id}")
+    else:
+        print("Not found")
 
     session.close()
