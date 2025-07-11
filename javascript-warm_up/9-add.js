@@ -4,7 +4,7 @@ function add (a, b) {
   return a + b;
 }
 
-const first_argv = parseInt(process.argv[2]);
-const second_argv = parseInt(process.argv[3]);
+const a = parseInt(process.argv[2]);
+const b = parseInt(process.argv[3]);
 
-console.log(add(first_argv, second_argv));
+console.log(add(a, b));
