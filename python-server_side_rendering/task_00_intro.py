@@ -25,6 +25,6 @@ def generate_invitations(template, attendees):
         }
         invitation = template.format(**data)
 
-        filename = "output_{i}.txt"
-        with open(filename, "w") as file:
+        filename = f"output_{i}.txt"
+        with open(filename, "w", encoding="utf-8") as file:
             file.write(invitation)
