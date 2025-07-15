@@ -7,14 +7,18 @@ generate_invitations
 
 def generate_invitations(template, attendees):
     if not isinstance(template, str):
-        raise TypeError('The template must be a string')
+        print('The template must be a string')
+        return
     if not template:
-        raise TypeError('Template is empty, no output files generated.')
+        print('Template is empty, no output files generated.')
+        return
     if not isinstance(attendees, list) and \
             not all(isinstance(a, dict) for a in attendees):
-        raise TypeError('The attendees must be a list of dictionary')
+        print('The attendees must be a list of dictionary')
+        return
     if not attendees:
-        raise TypeError('No data provided, no output files generated.')
+        print('No data provided, no output files generated.')
+        return
 
     for i, attendee in enumerate(attendees, start=1):
         data = {
